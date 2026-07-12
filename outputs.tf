@@ -1,3 +1,7 @@
+output "ip_groups_id" {
+  description = "Map of id values across all ip_groups, keyed the same as var.ip_groups"
+  value       = { for k, v in azurerm_ip_group.ip_groups : k => v.id }
+}
 output "ip_groups_cidrs" {
   description = "Map of cidrs values across all ip_groups, keyed the same as var.ip_groups"
   value       = { for k, v in azurerm_ip_group.ip_groups : k => v.cidrs }
